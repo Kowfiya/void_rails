@@ -1,0 +1,7 @@
+<%= form_with model: @imagen, local: true do |imagen|%>
+    <%= imagen.label :photo, 'Imagen'%>
+    <%= imagen.text_area :photo%>
+    <%= imagen.label :evento_id, 'evento'%>
+    <%= imagen.text_area :evento_id%>
+    <%= imagen.submit "Enviar"%>
+<% end %>

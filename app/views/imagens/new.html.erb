@@ -1,0 +1,13 @@
+<section class = 'container'>
+    Evento: <%= @evento.name %>
+    <div class = 'p-5'>
+        <%= form_with model: [@evento, @imagen], local: true do |imagen|%>
+            <%= imagen.label :photo, 'Imagen'%>
+            <%= imagen.text_area :photo%>
+            <%= imagen.hidden_field :evento_id, :value => @evento.id%>
+            <%= imagen.hidden_field :user_id, :value => current_user.id%>
+            <%= imagen.submit "Enviar"%>
+        <% end %>
+    </div>
+    <%= link_to 'volver', evento_path(@evento.id)%>
+</section>

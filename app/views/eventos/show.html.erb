@@ -1,0 +1,25 @@
+<section class = 'container'>
+    <div class = "row">
+        <div class = 'col-md-4'>
+            Nombre evento: <%= @evento.name%>
+            <%= link_to 'Nueva imagen', new_evento_imagen_path(@evento.id) %>
+            <div class = 'mt-5'>  
+                <h4>Usuarios que participan en este evento:</h4>
+                <% @evento.users.each do |user|%>
+                    <%= user.email%>
+                <%end%>
+            </div>
+        </div>
+        <div class = 'col'>
+            <% @evento.imagens.each do |imagen| %>
+                <div class = 'col-md-4'>
+                    <%= imagen.photo %>
+                    <%= link_to imagen.photo, evento_imagen_path(@evento.id, imagen.id)%>
+                    <%= link_to 'Borrar', evento_imagen_path(@evento.id, imagen.id), method: :delete%>
+                </div>
+            <%end%>
+        </div>
+    </div>
+
+    <%= link_to 'volver', root_path%>
+</section>

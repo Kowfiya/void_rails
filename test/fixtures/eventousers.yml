@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  evento: one
+  subio: false
+
+two:
+  user: two
+  evento: two
+  subio: false

@@ -1,0 +1,15 @@
+<section class = 'container'>
+    NUEVO EVENTO!
+    <div class = 'p-5'>
+        <%= form_with model: @evento, local: true do |evento|%>
+            <%= evento.label :name, 'Nombre'%>
+            <%= evento.text_area :name%>
+            <%= evento.label :descripction, 'Descripcion'%>
+            <%= evento.text_area :descripction%>
+            <%= evento.label :image, 'Imagen'%>
+            <%= evento.text_area :image%>
+            <%= evento.submit "Enviar"%>
+        <% end %>
+    </div>
+    <%= link_to 'volver', root_path%>
+</section>

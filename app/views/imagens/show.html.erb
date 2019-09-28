@@ -1,0 +1,20 @@
+<section class = "container">
+    <h1><%= @imagen.evento.name%></h1>
+    <h1><%= @imagen.photo%></h1>
+    <h1><%= @imagen.user.email%></h1>
+
+    <% @imagen.comentarios.each do |comentario|%>
+        <%= comentario.text%>
+        <%= comentario.user.email%>
+        <%= link_to 'Eliminar', evento_imagen_comentario_path(@imagen.evento.id, @imagen.id, comentario.id), method: :delete%>
+    <%end%>
+    <div class = 'p-5'>
+        <%= form_with model: [@imagen.evento, @imagen, Comentario.new], local: true do |comentario|%>
+            <%= comentario.label :text, 'Texto'%>
+            <%= comentario.text_area :text%>
+            <%= comentario.hidden_field :imagen_id, :value => @imagen.id%>
+            <%= comentario.submit "Enviar"%>
+        <% end %>
+    </div>
+    <%= link_to 'Volver', evento_path(@imagen.evento.id) %>
+</section>
